@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProjectHub.Models.PersonelResources>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ResourceFunction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abweichungen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectActivitesID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResourceFunction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abweichungen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectActivitesID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,116 @@
+﻿@model ProjectHub.Models.ProjectActivities
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProjectActivities</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectPhase.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectPhase.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Progress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Progress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentsLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentsLink)
+        </dd>
+        <hr />
+
+        <dt>
+            Externe Kosten
+        </dt>
+        <dd>
+
+            @foreach (var item in Model.ExternalCosts)
+            {
+                <p>
+                    @item.CostType |
+                    @Html.ActionLink("Externe Kosten anzeigen", "Details/" + item.ID, "ExternalCosts") |
+                    @Html.ActionLink("Externe Kosten bearbeiten", "Edit/" + item.ID, "ExternalCosts")
+                </p>
+
+            }
+            @Html.ActionLink("Externe Kosten erstellen", "Create", "ExternalCosts")
+        </dd>
+        <hr />
+        <dt>
+            Personelle Ressourcen
+        </dt>
+        <dd>
+
+            @foreach (var item in Model.PersonelResources)
+            {
+                <p>
+                    @item.ResourceFunction |
+                    @Html.ActionLink("Personelle Ressourcen anzeigen", "Details/" + item.ID, "PersonelResources") |
+                    @Html.ActionLink("Personelle Ressourcen bearbeiten", "Edit/" + item.ID, "PersonelResources")
+                </p>
+
+            }
+            @Html.ActionLink("Personelle Ressourcen erstellen", "Create", "PersonelResources")
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to Project Phase", "Details/" + Model.ProjectPhaseID, "ProjectPhases")
+</p>

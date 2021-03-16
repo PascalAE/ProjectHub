@@ -1,0 +1,58 @@
+﻿@model ProjectHub.Models.PersonelResources
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PersonelResources</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceFunction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResourceFunction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abweichungen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abweichungen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectActivitesID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectActivitesID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

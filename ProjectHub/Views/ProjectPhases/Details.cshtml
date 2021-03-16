@@ -1,0 +1,141 @@
+﻿@model ProjectHub.Models.ProjectPhase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProjectPhase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualReviewDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualReviewDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Progress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Progress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visum)
+        </dd>
+        <hr />
+
+        <dt>
+            Aktivitäten
+        </dt>
+        <dd>
+
+            @foreach (var item in Model.ProjectActivities)
+            {
+                <p>
+                    @Html.DisplayFor(modelItem => item.Name) |
+                    @Html.ActionLink("Aktivität anzeigen", "Details/" + item.ID, "ProjectActivities") |
+                    @Html.ActionLink("Aktivität bearbeiten", "Edit/" + item.ID, "ProjectActivities")
+                </p>
+
+            }
+            @Html.ActionLink("Aktivität erstellen", "Create", "ProjectActivities")
+        </dd>
+        <hr />
+        <dt>
+            Meilensteine
+        </dt>
+        <dd>
+
+            @foreach (var item in Model.Milestones)
+            {
+                <p>
+                    @Html.DisplayFor(modelItem => item.Name) |
+                    @Html.ActionLink("Meilenstein anzeigen", "Details/" + item.ID, "Milestones") |
+                    @Html.ActionLink("Meilenstein bearbeiten", "Edit/" + item.ID, "Milestones")
+                </p>
+
+            }
+            @Html.ActionLink("Meilenstein erstellen", "Create", "Milestones")
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @{ string projectIdLink = "Details/" + ViewBag.ProjectId; }
+        @Html.ActionLink("Back to Project", projectIdLink, "Projects")
+</p>
